@@ -10,18 +10,18 @@ namespace ConcurrencyExamples
 
         static void Main(string[] _)
         {
-            // ModifiedCollections();
+            ModifiedCollections();
 
             // BankAccount();
 
             // ProducerConsumer();
 
-            DiningPhilosophers();
+            //DiningPhilosophers();
         }
 
         private static void ModifiedCollections()
         {
-            CollectionExample collectionExample = new CollectionFixed();
+            CollectionExample collectionExample = new CollectionFlawed();
             collectionExample.Start();
         }
    
@@ -29,7 +29,7 @@ namespace ConcurrencyExamples
         {
             Console.OutputEncoding = System.Text.Encoding.Unicode;
 
-            BankAccount bankAccount = new BankAccountFixed();
+            BankAccount bankAccount = new BankAccountFlawed();
 
             BankAccountAccess a = new BankAccountAccess(bankAccount, "A");
             BankAccountAccess b = new BankAccountAccess(bankAccount, "B");
@@ -59,7 +59,7 @@ namespace ConcurrencyExamples
 
         private static void ProducerConsumer()
         {
-            ProducerConsumer pc = new ProducerConsumerMonitor() { Sleep = true };
+            ProducerConsumer pc = new ProducerConsumerFlawed() { Sleep = true };
             pc.Start();
         }
 
@@ -74,11 +74,11 @@ namespace ConcurrencyExamples
 
             List<Philosopher> philosophers = new List<Philosopher>
             {
-                new PhilosopherResourceHierarchy("Platon", c4, c0),
-                new PhilosopherResourceHierarchy("Kant", c0, c1),
-                new PhilosopherResourceHierarchy("Sokrates", c1, c2),
-                new PhilosopherResourceHierarchy("Wittgenstein", c2, c3),
-                new PhilosopherResourceHierarchy("Sartre", c3, c4)
+                new PhilosopherDeadlock("Platon", c4, c0),
+                new PhilosopherDeadlock("Kant", c0, c1),
+                new PhilosopherDeadlock("Sokrates", c1, c2),
+                new PhilosopherDeadlock("Wittgenstein", c2, c3),
+                new PhilosopherDeadlock("Sartre", c3, c4)
             };
 
             while (true)

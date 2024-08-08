@@ -36,8 +36,11 @@ namespace ConcurrencyExamples
 
             WaitRandomTime();
 
-            Left.PutBack();
-            Right.PutBack();
+            lock (LockObject)
+            {
+                Left.PutBack();
+                Right.PutBack();
+            }
         }
 
 
