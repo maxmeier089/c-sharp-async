@@ -16,7 +16,7 @@ namespace ConcurrencyExamples
 
             // ProducerConsumer();
 
-            //DiningPhilosophers();
+            // DiningPhilosophers();
         }
 
         private static void ModifiedCollections()

@@ -10,7 +10,7 @@ namespace ThreadingExamples
 
         static void Main(string[] args)
         {
-            // (new ThreadCreation()).CreateSomeThreads();
+            (new ThreadCreation()).CreateSomeThreads();
 
             //Greet.Greet1();
             //Console.WriteLine();
@@ -18,8 +18,8 @@ namespace ThreadingExamples
 
             // PrintNumbers.PrintSomeNumbersInParallel();
 
-            ParallelWork.WorkSync();
-            ParallelWork.WorkAsync();
+            // ParallelWork.WorkSync();
+            // ParallelWork.WorkAsync();
         }
 
 
